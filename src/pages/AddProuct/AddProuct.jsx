@@ -16,7 +16,7 @@ const AddProduct = () => {
         console.log(newProduct);
 
         // add server site
-        fetch('http://localhost:5000/car', {
+        fetch('https://car-brand-server-shop.vercel.app/car', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

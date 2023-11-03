@@ -13,7 +13,7 @@ const Blog = () => {
 
                 <div className="lg:flex md:flex  gap-6">
                     <div><img className="w-[600px] h-[400px]" src={blog} alt="" /></div>
-                    <div className="lg:mt-6 text-center md:text-start">
+                    <div className="lg:mt-6 mt-5 text-center md:text-start">
                         <h1 className="lg:text-3xl md:text-xl text-lg font-medium mb-4">Are You Ready for the Online Dealership?</h1>
                         <div className="flex gap-4 mb-4 ml-24 md:ml-0 lg:ml-0">
                             <div className="flex items-center gap-1">

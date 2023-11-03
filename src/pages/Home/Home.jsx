@@ -29,7 +29,7 @@ const Home = () => {
 
     return (
         <div style={bodyStyle}>
-            <button onClick={toggleMode} className="w-8 absolute right-32 md:right-36 lg:right-10 top-6 ">
+            <button onClick={toggleMode} className="w-8 absolute right-5 md:right-10 lg:right-10 top-6 ">
                 {
                     isDarkMode ? <img src={dark} alt="" /> : <img src={light} alt="" />
                 }
@@ -44,6 +44,3 @@ const Home = () => {
 };
 
 export default Home;
-
-
-

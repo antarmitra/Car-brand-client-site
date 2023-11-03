@@ -8,7 +8,9 @@ import app from "../../../firebase/firebase.config";
 import toast from "react-hot-toast";
 
 const Login = () => {
+
     const auth = getAuth(app);
+
     const Provider = new GoogleAuthProvider();
 
     const handleGoogleSingIn = () => {
@@ -40,9 +42,8 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 console.log(result.user);
-                toast.success("User Login Successfully")
-                e.target.reset();
                 navigate(location?.state ? location.state : '/')
+                toast.success("User Login Successfully")
             })
             .catch(error => {
                 console.error(error.code);
@@ -56,6 +57,7 @@ const Login = () => {
                     toast.error('please provide valid password and email');
                 }
             })
+            // e.target.reset();
     }
 
     return (

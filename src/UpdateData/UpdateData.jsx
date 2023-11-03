@@ -20,7 +20,7 @@ const UpdateData = () => {
         console.log(updateProduct);
 
         // add server site
-        fetch(`http://localhost:5000/car/${_id}`, {
+        fetch(`https://car-brand-server-shop.vercel.app/car/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

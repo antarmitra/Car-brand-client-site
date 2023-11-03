@@ -20,7 +20,7 @@ const Details = () => {
             details:  details ,
         };
 
-        fetch('http://localhost:5000/product', {
+        fetch('https://car-brand-server-shop.vercel.app/product', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

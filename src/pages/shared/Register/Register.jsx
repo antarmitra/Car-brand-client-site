@@ -9,10 +9,10 @@ import app from "../../../firebase/firebase.config";
 import toast, { Toaster } from 'react-hot-toast';
 
 
-
-
 const Register = () => {
+
     const auth = getAuth(app);
+
     const Provider = new GoogleAuthProvider();
 
     const handleGoogleSingIn = () => {
@@ -33,16 +33,15 @@ const Register = () => {
     console.log("location in the register page", location);
 
 
-
     const handleRegister = e => {
         e.preventDefault();
-        // console.log(e.currentTarget);
+        console.log(e.currentTarget);
         const form = new FormData(e.currentTarget);
         const name = form.get('name');
         const photo = form.get('photo');
         const email = form.get('email');
         const password = form.get('password');
-        // console.log(name, photo, email, password);
+        console.log(name, photo, email, password);
 
         if (password.length < 6) {
             toast.error("Password should be at least 6 characters");
@@ -59,6 +58,9 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
+                navigate(location ?. state ? location.state : '/')
+                toast.success('user create successfully')
+                e.target.reset();
                 updateProfile(result.user, {
                     displayName: name,
                     photoURL: photo
