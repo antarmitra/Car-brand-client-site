@@ -13,8 +13,6 @@ const Navbar = () => {
     }
 
 
-
-
     const navLinks = <>
         <div className="lg:flex justify-between gap-14 items-center">
             <li><NavLink className="text-lg font-semibold text-white  px-2 py-1 rounded-lg" to="/">Home</NavLink></li>
@@ -60,7 +58,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div className="bg-black bg-opacity-20 p-2">
+        <div className="bg-black bg-opacity-70 p-2">
             <div className="navbar max-w-screen-xl mx-auto  ">
                 <div className="navbar-start">
                     <div className="dropdown">

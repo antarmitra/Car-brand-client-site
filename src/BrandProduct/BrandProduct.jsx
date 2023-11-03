@@ -30,8 +30,6 @@ const BrandProduct = () => {
 
 
 
-
-
     return (
         <div className="max-w-screen-xl mx-auto mt-10">
             <div className="carousel w-full ">

@@ -9,14 +9,14 @@ import BrandProduct from "../BrandProduct/BrandProduct";
 import Details from "../Details/Details";
 import UpdateData from "../UpdateData/UpdateData";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
-
-
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -34,16 +34,16 @@ const router = createBrowserRouter([
             },
             {
                 path: '/login',
-                element:<Login></Login>
+                element: <Login></Login>
             },
             {
                 path: '/register',
                 element: <Register></Register>
-            }, 
+            },
             {
                 path: "/cars/:id",
                 element: <BrandProduct></BrandProduct>,
-                loader: () =>  fetch('/data.json')
+                loader: () => fetch('/data.json')
             },
             {
                 path: "/details/:id",
@@ -51,12 +51,12 @@ const router = createBrowserRouter([
                 loader: () => fetch('http://localhost:5000/car')
             },
             {
-                path:"/update/:id",
-                element:<PrivateRoute><UpdateData></UpdateData></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/car/${params.id}`)
+                path: "/update/:id",
+                element: <PrivateRoute><UpdateData></UpdateData></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/car/${params.id}`)
             }
         ]
     }
 ])
 
-export default router ;
+export default router;

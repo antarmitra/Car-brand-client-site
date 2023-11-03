@@ -1,73 +1,49 @@
-
 import Banner from "../shared/Banner/Banner";
 import Brand from "../../Brand/Brand";
 import { useLoaderData } from "react-router-dom";
 import Footer from "../../Footer/Footer";
 import Offer from "../../Offer/Offer";
 import Blog from "../../Blog/Blog";
+import { useEffect, useState } from "react";
+import dark from "../../../../car-brand-client-shop/src/assets/image/dark_mode.png"
+import light from "../../../../car-brand-client-shop/src/assets/image/light_mode.png"
+
 
 const Home = () => {
     const brands = useLoaderData();
+    const [isDarkMode, setIsDarkMode] = useState(localStorage.getItem('darkMode') === false);
+
+    useEffect(() => {
+        localStorage.setItem('darkMode', isDarkMode)
+    }, [isDarkMode]);
+
+    const toggleMode = () => {
+        setIsDarkMode((prevMode) => !prevMode)
+    };
+
+    const bodyStyle = {
+        backgroundColor: isDarkMode ? '#262626' : '#fff',
+        color: isDarkMode ? '#fff' : '#262626'
+    };
+
+
     return (
-        <div>
+        <div style={bodyStyle}>
+            <button onClick={toggleMode} className="w-8 absolute right-32 md:right-36 lg:right-10 top-6 ">
+                {
+                    isDarkMode ? <img src={dark} alt="" /> : <img src={light} alt="" />
+                }
+            </button>
             <Banner></Banner>
             <Brand brands={brands}></Brand>
             <Offer></Offer>
             <Blog></Blog>
             <Footer></Footer>
-
-
         </div>
     );
 };
 
 export default Home;
-
-
-
-
-// import { useLoaderData } from "react-router-dom";
-// import Brand from "../../Brand/Brand";
-// // import Banner from "../shared/Banner/Banner";
-// // Import Swiper React components
-// import { Swiper, SwiperSlide } from 'swiper/react';
-
-// // Import Swiper styles
-// import 'swiper/css';
-// import 'swiper/css/navigation';
-
-// import './style.css'
-
-// // import required modules
-// import { Navigation } from 'swiper/modules';
-
-
-
-// import bannerImg1 from "../../assets/image/banner1.jpg"
-// import bannerImg2 from "../../assets/image/banner2.jpg"
-// import bannerImg3 from "../../assets/image/banner3.jpg"
-// import bannerImg4 from "../../assets/image/banner4.jpg"
-
-// const Home = () => {
-//     const brands = useLoaderData();
-
-
-//     return (
-//         <div>
-//             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-//                 <SwiperSlide><img src={bannerImg1} alt="" /></SwiperSlide>
-//                 <SwiperSlide><img src={bannerImg2} alt="" /></SwiperSlide>
-//                 <SwiperSlide><img src={bannerImg3} alt="" /></SwiperSlide>
-//                 <SwiperSlide><img src={bannerImg4} alt="" /></SwiperSlide>
-//             </Swiper>
-
-//             <Brand brands={brands}></Brand>
-
-//         </div>
-//     );
-// };
-
-// export default Home;
 
 
 

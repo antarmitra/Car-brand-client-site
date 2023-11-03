@@ -6,13 +6,10 @@ import Swal from "sweetalert2";
 const Details = () => {
     const detailsData = useLoaderData();
     const { id } = useParams();
-    // console.log(id);
 
     const findDetails = detailsData.find(details => details._id === id)
-    // console.log(findDetails);
 
     const { photo, modelName, price, rating, details } = findDetails;
-
 
     const handleAddToCart = () => {
         const product = {
@@ -44,10 +41,8 @@ const Details = () => {
             })
     }
 
-    // console.log(brandName);
 
     return (
-
         <div className="lg:flex gap-10 mt-24 max-w-screen-xl mx-auto shadow-xl">
             <div >
                 <img className="w-[5000px] h-[500px]" src={photo} alt="" />
@@ -66,8 +61,7 @@ const Details = () => {
                 <div>
                     <button className="btn w-full text-xl bg-[#F0151F] text-white" onClick={handleAddToCart}>Add Cart <AiOutlineShoppingCart className="text-4xl"></AiOutlineShoppingCart></button>
                 </div>
-            </div>
-
+            </div>   
         </div>
     );
 };

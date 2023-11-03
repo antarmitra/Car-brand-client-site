@@ -1,10 +1,14 @@
+/* eslint-disable no-useless-escape */
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGithub, FaGoogle } from "react-icons/Fa";
-import r1 from "../../../../../car-brand-client-shop/src/assets/image/banner3.jpg";
+import r1 from "../../../../../car-brand-client-shop/src/assets/image/o.png";
 import { useContext } from "react";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import { GoogleAuthProvider, getAuth, signInWithPopup, updateProfile } from "firebase/auth";
 import app from "../../../firebase/firebase.config";
+import toast, { Toaster } from 'react-hot-toast';
+
+
 
 
 const Register = () => {
@@ -23,7 +27,6 @@ const Register = () => {
             })
     }
 
-
     const { createUser } = useContext(AuthContext)
     const location = useLocation();
     const navigate = useNavigate();
@@ -33,13 +36,24 @@ const Register = () => {
 
     const handleRegister = e => {
         e.preventDefault();
-        console.log(e.currentTarget);
+        // console.log(e.currentTarget);
         const form = new FormData(e.currentTarget);
         const name = form.get('name');
         const photo = form.get('photo');
         const email = form.get('email');
         const password = form.get('password');
-        console.log(name, photo, email, password);
+        // console.log(name, photo, email, password);
+
+        if (password.length < 6) {
+            toast.error("Password should be at least 6 characters");
+            return false; 
+        } else if (!/[A-Z]/.test(password)) {
+            toast.error("Your password should contain at least one uppercase character");
+            return false; 
+        } else if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(password)) {
+            toast.error("Your password should contain at least one special character");
+            return false;
+        }
 
         // user create
         createUser(email, password)
@@ -54,8 +68,6 @@ const Register = () => {
                 console.error(error);
             })
     }
-
-
 
 
     return (
@@ -122,6 +134,7 @@ const Register = () => {
                     </div>
                 </div>
             </div>
+            <Toaster></Toaster>
         </div>
     );
 };

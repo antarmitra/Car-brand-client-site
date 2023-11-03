@@ -5,7 +5,7 @@ const Banner = () => {
     return (
         <div>
             <div className="hero min-h-fit">
-                <img className="w-screen h-[650px]" src={image6} alt="" />
+                <img className="w-screen h-[700px]" src={image6} alt="" />
                 <div className="bg-white bg-opacity-25"></div>
                 <div className="hero-content">
                     <div className='text-center md:text-center lg:text-start lg:mr-[650px]'>

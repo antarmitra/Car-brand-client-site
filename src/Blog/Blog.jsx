@@ -5,7 +5,7 @@ const Blog = () => {
     return (
         <div className="mt-14">
             <div className="text-center">
-                <h2 className="text-4xl font-bold text-black py-2">Latest <span className="text-[#F0151f]">Blog </span> Post</h2>
+                <h2 className="text-4xl font-bold  py-2">Latest <span className="text-[#F0151f]">Blog </span> Post</h2>
                 <p className="text-lg">You can share your experience by posting here</p>
             </div>
 
@@ -36,7 +36,7 @@ const Blog = () => {
                     </div>
                 </div>
 
-                <div className="mt-5 ml-10 md:ml-0 lg:ml-0">
+                <div className="lg:mt-0 md:mt-0 mt-4 ml-10 md:ml-0 lg:ml-0">
                     <div className="flex gap-4">
                         <div className=" text-center bg-red-500 lg:p-4 md:p-2 p-2 mb-5 text-white font-bold">
                             <h1>14</h1>

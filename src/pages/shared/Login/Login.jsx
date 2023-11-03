@@ -1,16 +1,15 @@
 import { FaGithub, FaGoogle } from "react-icons/Fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import image1 from "../../../../../car-brand-client-shop/src/assets/image/banner4.jpg"
+import image1 from "../../../../../car-brand-client-shop/src/assets/image/p.png"
 import { useContext } from "react";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from "../../../firebase/firebase.config";
-
-
+import toast from "react-hot-toast";
 
 const Login = () => {
     const auth = getAuth(app);
-    const Provider = new GoogleAuthProvider(); 
+    const Provider = new GoogleAuthProvider();
 
     const handleGoogleSingIn = () => {
         signInWithPopup(auth, Provider)
@@ -24,13 +23,10 @@ const Login = () => {
             })
     }
 
-
-
     const { signIn } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate()
     console.log('location in the login page', location);
-
 
     const handleLogin = e => {
         e.preventDefault();
@@ -44,13 +40,22 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 console.log(result.user);
+                toast.success("User Login Successfully")
+                e.target.reset();
                 navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
-                console.error(error);
+                console.error(error.code);
+                if (error.code === 'auth/wrong-password') {
+                    toast.error('Incorrect password. Please try again.');
+                } else if (error.code === 'auth/user-not-found') {
+                    toast.error('User not found. Please check your email.');
+                } else if (error.code === 'auth/invalid-login-credentials') {
+                    toast.error('Invalid email or password. Please double-check your email and password.');
+                } else {
+                    toast.error('please provide valid password and email');
+                }
             })
-
-
     }
 
     return (
