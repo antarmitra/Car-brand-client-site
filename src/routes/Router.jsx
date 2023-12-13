@@ -9,17 +9,17 @@ import BrandProduct from "../BrandProduct/BrandProduct";
 import Details from "../Details/Details";
 import UpdateData from "../UpdateData/UpdateData";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
-import ErrorPage from "../ErrorPage/ErrorPage";
+
+
 
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
-        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
-                path: '/',
+                path: '/home',
                 element: <Home></Home>,
                 loader: () => fetch('/data.json')
             },

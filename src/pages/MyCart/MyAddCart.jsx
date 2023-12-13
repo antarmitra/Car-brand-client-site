@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 
 const MyAddCart = ({ data: datas, handleDeleteItem }) => {
     const { _id, photo, modelName, price, rating } = datas;
+
     const handleDelete = _id => {
         console.log(_id);
         Swal.fire({

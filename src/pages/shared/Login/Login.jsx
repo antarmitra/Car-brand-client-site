@@ -63,16 +63,14 @@ const Login = () => {
     return (
         <div className="max-w-screen-xl mx-auto">
             <div className="relative">
-
                 <div className="md:flex rounded-lg md:absolute top-12 lg:left-40 mt-5 shadow-xl">
                     <div>
                         <img className="w-[600px] h-[550px] rounded-lg" src={image1} alt="" />
                     </div>
 
-                    <div className="text-center p-5">
+                    <div className=" p-5">
                         <div className="space-y-3 mt-10 ">
-                            <h2 className="text-4xl font-medium">Welcome</h2>
-                            <p className="text-xl font-normal">Please Login Now !</p>
+                            <h2 className="text-4xl font-medium">Login Now</h2>
                         </div>
 
                         <form onClick={handleLogin} >

@@ -53,7 +53,7 @@ const UpdateData = () => {
                                 <span className="label-text text-lg font-medium text-gray-600">Model Name</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="modelname" defaultValue={modelName}  placeholder="Model Name...." className="input input-bordered w-full" />
+                                <input type="text" name="modelname" defaultValue={modelName} placeholder="Model Name...." className="input input-bordered w-full" />
                             </label>
                         </div>
                         <div className="form-control md:w-1/2 ">
@@ -61,7 +61,7 @@ const UpdateData = () => {
                                 <span className="label-text text-lg font-medium text-gray-600">Brand Name</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="brandName" defaultValue={brandName}  placeholder="Brand Name....." className="input input-bordered w-full" />
+                                <input type="text" name="brandName" defaultValue={brandName} placeholder="Brand Name....." className="input input-bordered w-full" />
                             </label>
                         </div>
                     </div>

@@ -12,13 +12,11 @@ const Navbar = () => {
             .catch()
     }
 
-
     const navLinks = <>
         <div className="lg:flex justify-between gap-14 items-center">
             <li><NavLink className="text-lg font-semibold text-white  px-2 py-1 rounded-lg" to="/">Home</NavLink></li>
             <li><NavLink className="text-lg font-semibold text-white  px-2 py-1 rounded-lg" to="/addProduct">Add Product</NavLink></li>
             <li><NavLink className="text-lg font-semibold text-white  px-2 py-1 rounded-lg" to="/mycart">My Cart</NavLink></li>
-
 
             {
                 user ?
